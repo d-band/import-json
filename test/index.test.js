@@ -1,7 +1,7 @@
 const assert = require('assert');
 const path = require('path');
 const http = require('http');
-const importJson = require('../index');
+const jsonFrom = require('../index');
 
 describe('index', () => {
   let server;
@@ -9,7 +9,7 @@ describe('index', () => {
   before((done) => {
     server = http.createServer((req, res) => {
       res.end(JSON.stringify({
-        name: 'import-json'
+        name: 'json-from'
       }));
     });
     server.listen(8000, () => {
@@ -19,23 +19,23 @@ describe('index', () => {
 
   it('local file', (done) => {
     const file = path.join(__dirname, '..', 'package.json');
-    importJson(file).then((data) => {
-      assert.strictEqual(data.name, 'import-json');
+    jsonFrom(file).then((data) => {
+      assert.strictEqual(data.name, 'json-from');
       done();
     });
   });
 
   it('local file with error', (done) => {
     const file = 'not-found-file';
-    importJson(file).catch((err) => {
+    jsonFrom(file).catch((err) => {
       assert(err instanceof Error);
       done();
     });
   });
 
   it('remote url', (done) => {
-    importJson('http://localhost:8000').then((data) => {
-      assert.strictEqual(data.name, 'import-json');
+    jsonFrom('http://localhost:8000').then((data) => {
+      assert.strictEqual(data.name, 'json-from');
       done();
     });
   });
