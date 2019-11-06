@@ -26,6 +26,11 @@ importJson('http://example.com/test.json').then(data => {
 });
 ```
 
+## Report a issue
+
+* [All issues](https://github.com/d-band/import-json/issues)
+* [New issue](https://github.com/d-band/import-json/issues/new)
+
 ## License
 
 MIT
