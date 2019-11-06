@@ -1,0 +1,36 @@
+{
+  "name": "import-json",
+  "version": "1.0.0",
+  "description": "import json from local file or remote url",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha --no-timeouts",
+    "report": "nyc report --reporter=html",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-band/import-json.git"
+  },
+  "keywords": [
+    "import",
+    "json",
+    "fetch",
+    "local",
+    "remote"
+  ],
+  "author": "d-band",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d-band/import-json/issues"
+  },
+  "homepage": "https://github.com/d-band/import-json#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.7",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
+  }
+}
